@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { Analytics } from "@vercel/analytics/react"
 import Navbar from "./components/shared/NavBar";
 import Login from './components/auth/Login'
 import Signup from './components/auth/Signup'
@@ -77,10 +78,9 @@ function App() {
   return (
     <div>
       <RouterProvider router={appRouter} />
+      <Analytics />
     </div>
   )
 }
 
 export default App
-
-
