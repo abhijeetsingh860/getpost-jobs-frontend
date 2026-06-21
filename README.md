@@ -1,16 +1,61 @@
-# React + Vite
+# GetPost Jobs - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive job portal application built with React, where students can browse and apply to jobs, and recruiters can post jobs and manage applicants.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Live Site: https://getpost-jobs-frontend.vercel.app
 
-## React Compiler
+Backend Repo: https://github.com/abhijeetsingh860/getpost-jobs-backend
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+- **Library:** React 19
+- **Build Tool:** Vite
+- **State Management:** Redux Toolkit, Redux Persist
+- **Styling:** Tailwind CSS, shadcn/ui (Radix UI)
+- **Routing:** React Router DOM
+- **HTTP Client:** Axios
+- **Animations:** Framer Motion
+- **Notifications:** Sonner
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Features
+
+- Role-based authentication (Student / Recruiter)
+- Job search and filtering by location, industry, and salary
+- Job application with real-time status tracking
+- Recruiter dashboard to manage companies and job postings
+- Applicant management with accept/reject functionality
+- Profile management with resume upload
+- Responsive UI with reusable shadcn/ui components
+- Persistent login state using Redux Persist
+
+## 📁 Project Structure
+
+frontend/
+├── src/
+│   ├── components/
+│   │   ├── admin/        # Recruiter dashboard components
+│   │   ├── auth/          # Login & Signup
+│   │   ├── shared/        # Navbar, Footer
+│   │   └── ui/             # shadcn/ui components
+│   ├── hooks/             # Custom React hooks
+│   ├── redux/             # Redux slices & store
+│   └── utils/              # Constants & helpers
+
+## 🚀 Getting Started
+
+git clone https://github.com/abhijeetsingh860/getpost-jobs-frontend.git
+cd getpost-jobs-frontend
+npm install
+npm run dev
+
+## 🔗 Related
+
+This is the frontend for GetPost Jobs. Check out the [backend repository](https://github.com/abhijeetsingh860/getpost-jobs-backend) for the API.
+
+## 👤 Author
+
+**Abhijeet Singh**
+
+- GitHub: [@abhijeetsingh860](https://github.com/abhijeetsingh860)
