@@ -10,14 +10,7 @@ const Footer = () => {
             <p className="text-sm">© 2026 GetPost Jobs. All rights reserved.</p>
             <p className="text-sm">
               Crafted by{" "}
-              
-                href="https://github.com/abhijeetsingh860"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-medium text-[#6A38C2] hover:underline"
-              >
-                Abhijeet
-              </a>
+              <a href="https://github.com/abhijeetsingh860" target="_blank" rel="noopener noreferrer" className="font-medium text-[#6A38C2] hover:underline">Abhijeet</a>
             </p>
           </div>
           
