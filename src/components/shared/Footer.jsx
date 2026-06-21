@@ -16,7 +16,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="font-medium text-[#6A38C2] hover:underline"
               >
-                Abhijeet Singh
+                Abhijeet
               </a>
             </p>
           </div>
