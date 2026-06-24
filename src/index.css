@@ -78,4 +78,113 @@
   z-index: 9999 !important;
   background-color: white !important;
 }
+
+.dark {
+  background-color: #0f172a;
+  color: #f1f5f9;
+}
+
+/* Dark Mode Global Styles */
+.dark body {
+  background-color: #0f172a;
+  color: #f1f5f9;
+}
+
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #f1f5f9;
+}
+
+.dark p {
+  color: #cbd5e1;
+}
+
+.dark .bg-white {
+  background-color: #1e293b !important;
+}
+
+.dark .text-gray-600,
+.dark .text-gray-700,
+.dark .text-gray-800,
+.dark .text-gray-900 {
+  color: #e2e8f0 !important;
+}
+
+.dark .text-gray-400,
+.dark .text-gray-500 {
+  color: #94a3b8 !important;
+}
+
+.dark .border-gray-100,
+.dark .border-gray-200 {
+  border-color: #334155 !important;
+}
+
+.dark .bg-gray-50,
+.dark .bg-gray-100 {
+  background-color: #1e293b !important;
+}
+
+.dark .shadow-xl,
+.dark .shadow-lg,
+.dark .shadow-md {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5) !important;
+}
+
+.dark body {
+  background-color: #0f172a;
+  color: #f1f5f9;
+}
+
+.dark h1, .dark h2, .dark h3, .dark h4 {
+  color: #ffffff !important;
+}
+
+.dark p {
+  color: #cbd5e1 !important;
+}
+
+.dark .text-gray-900,
+.dark .text-gray-800,
+.dark .text-gray-700,
+.dark .text-gray-600 {
+  color: #e2e8f0 !important;
+}
+
+.dark .text-gray-500,
+.dark .text-gray-400 {
+  color: #94a3b8 !important;
+}
+
+.dark .bg-white {
+  background-color: #1e293b !important;
+}
+
+.dark .bg-gray-50,
+.dark .bg-gray-100 {
+  background-color: #1e293b !important;
+}
+
+.dark .border-gray-100,
+.dark .border-gray-200 {
+  border-color: #334155 !important;
+}
+
+/* Job Cards Dark Mode */
+.dark .group:hover {
+  background-color: #1e293b !important;
+}
+
+.dark .group .text-gray-900 {
+  color: #ffffff !important;
+}
+
+/* Search Bar Dark */
+.dark input {
+  background-color: transparent !important;
+  color: #f1f5f9 !important;
+}
+
+.dark input::placeholder {
+  color: #64748b !important;
+}
 }
