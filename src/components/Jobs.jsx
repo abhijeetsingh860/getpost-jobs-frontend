@@ -4,12 +4,21 @@ import FilterCard from './FilterCard'
 import Job from './Job';
 import { useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
-
-// const jobsArray = [1, 2, 3, 4, 5, 6, 7, 8];
+import LoginPromptModal from './LoginPromptModal';
+import { useNavigate } from 'react-router-dom';
 
 const Jobs = () => {
     const { allJobs, searchedQuery } = useSelector(store => store.job);
+    const { user } = useSelector(store => store.auth);
     const [filterJobs, setFilterJobs] = useState(allJobs);
+    const [showLoginModal, setShowLoginModal] = useState(false);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!user) {
+            setShowLoginModal(true);
+        }
+    }, [user]);
 
     useEffect(() => {
         if (searchedQuery) {
@@ -27,6 +36,16 @@ const Jobs = () => {
     return (
         <div>
             <Navbar />
+
+            {/* Login Popup */}
+            <LoginPromptModal
+                isOpen={showLoginModal}
+                onClose={() => {
+                    setShowLoginModal(false);
+                    if (!user) navigate('/');
+                }}
+            />
+
             <div className='max-w-7xl mx-auto mt-5'>
                 <div className='flex gap-5'>
                     <div className='w-20%'>
@@ -54,8 +73,6 @@ const Jobs = () => {
                     }
                 </div>
             </div>
-
-
         </div>
     )
 }
