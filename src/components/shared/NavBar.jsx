@@ -31,7 +31,8 @@ const Navbar = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const location = useLocation();
-    const { theme, setTheme } = useTheme();
+    const { theme, setTheme, resolvedTheme } = useTheme();
+    const isDark = (resolvedTheme || theme) === 'dark';
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     const logoutHandler = async () => {
@@ -131,12 +132,12 @@ const Navbar = () => {
 
                     {/* Dark/Light Mode Toggle */}
                     <button
-                        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                        onClick={() => setTheme(isDark ? 'light' : 'dark')}
                         className='p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 bg-slate-100/80 dark:bg-slate-800/80 hover:bg-slate-200/80 dark:hover:bg-slate-700 transition-all duration-200 border border-slate-200/50 dark:border-slate-700/50'
                         aria-label="Toggle theme"
-                        title="Toggle dark/light mode"
+                        title={isDark ? "Switch to light mode" : "Switch to dark mode"}
                     >
-                        {theme === 'dark' ? (
+                        {isDark ? (
                             <Sun className='h-4 w-4 text-amber-400' />
                         ) : (
                             <Moon className='h-4 w-4 text-slate-600' />

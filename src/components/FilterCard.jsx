@@ -12,7 +12,7 @@ import { Button } from './ui/button';
 const locations = ["All", "Remote", "Bangalore", "Delhi NCR", "Hyderabad", "Pune", "Mumbai", "Noida"];
 const jobTypes = ["All", "Full-time", "Part-time", "Remote", "Internship", "Contract"];
 const salaryRanges = [
-    { label: "All Salaries", value: "all" },
+    { label: "All", value: "all" },
     { label: "Up to ₹6 LPA", value: "0-6" },
     { label: "₹6 - ₹15 LPA", value: "6-15" },
     { label: "₹15 - ₹30 LPA", value: "15-30" },
@@ -27,23 +27,23 @@ const FilterCard = () => {
         selectedSalaryRange 
     } = useSelector(store => store.job);
 
-    const hasActiveFilters = selectedLocation || selectedJobType || selectedSalaryRange;
+    const hasActiveFilters = Boolean(selectedLocation || selectedJobType || selectedSalaryRange);
 
     return (
         <aside className='w-full p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-xs backdrop-blur-md sticky top-24'>
             {/* Header */}
             <div className='flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800 mb-5'>
                 <div className='flex items-center gap-2'>
-                    <div className='p-1.5 rounded-lg bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400'>
+                    <div className='p-1.5 rounded-lg bg-indigo-50 dark:bg-indigo-950/70 text-indigo-600 dark:text-indigo-400'>
                         <Filter className="w-4 h-4" />
                     </div>
-                    <h2 className='font-bold text-sm text-slate-900 dark:text-white'>Filter Openings</h2>
+                    <h2 className='font-bold text-sm text-slate-900 dark:text-white tracking-tight'>Filter Openings</h2>
                 </div>
 
                 {hasActiveFilters && (
                     <button
                         onClick={() => dispatch(clearAllFilters())}
-                        className='text-xs font-semibold text-rose-500 hover:text-rose-600 flex items-center gap-1 transition-colors'
+                        className='text-xs font-semibold text-rose-500 hover:text-rose-600 dark:text-rose-400 dark:hover:text-rose-300 flex items-center gap-1 transition-colors'
                         title="Reset all filters"
                     >
                         <RotateCcw className="w-3 h-3" />
@@ -59,7 +59,7 @@ const FilterCard = () => {
                         <Briefcase className="w-3.5 h-3.5 text-indigo-500" />
                         Employment Type
                     </h3>
-                    <div className='flex flex-wrap gap-1.5'>
+                    <div className='flex flex-wrap gap-2'>
                         {jobTypes.map((type) => {
                             const isSelected = (!selectedJobType && type === "All") || selectedJobType === type;
                             return (
@@ -67,10 +67,10 @@ const FilterCard = () => {
                                     key={type}
                                     type="button"
                                     onClick={() => dispatch(setSelectedJobType(type === "All" ? "" : type))}
-                                    className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
+                                    className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 border ${
                                         isSelected
-                                            ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-xs'
-                                            : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+                                            ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white border-transparent shadow-xs font-semibold'
+                                            : 'bg-slate-100 dark:bg-slate-800/90 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700/80 border-slate-200/80 dark:border-slate-700/60'
                                     }`}
                                 >
                                     {type}
@@ -86,7 +86,7 @@ const FilterCard = () => {
                         <MapPin className="w-3.5 h-3.5 text-fuchsia-500" />
                         Location / Work Mode
                     </h3>
-                    <div className='flex flex-wrap gap-1.5'>
+                    <div className='flex flex-wrap gap-2'>
                         {locations.map((loc) => {
                             const isSelected = (!selectedLocation && loc === "All") || selectedLocation === loc;
                             return (
@@ -94,10 +94,10 @@ const FilterCard = () => {
                                     key={loc}
                                     type="button"
                                     onClick={() => dispatch(setSelectedLocation(loc === "All" ? "" : loc))}
-                                    className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
+                                    className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 border ${
                                         isSelected
-                                            ? 'bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white shadow-xs'
-                                            : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+                                            ? 'bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white border-transparent shadow-xs font-semibold'
+                                            : 'bg-slate-100 dark:bg-slate-800/90 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700/80 border-slate-200/80 dark:border-slate-700/60'
                                     }`}
                                 >
                                     {loc}
@@ -113,7 +113,7 @@ const FilterCard = () => {
                         <IndianRupee className="w-3.5 h-3.5 text-emerald-500" />
                         Annual Compensation
                     </h3>
-                    <div className='flex flex-col gap-1.5'>
+                    <div className='flex flex-wrap gap-2'>
                         {salaryRanges.map((sal) => {
                             const isSelected = (!selectedSalaryRange && sal.value === "all") || selectedSalaryRange === sal.value;
                             return (
@@ -121,14 +121,13 @@ const FilterCard = () => {
                                     key={sal.value}
                                     type="button"
                                     onClick={() => dispatch(setSelectedSalaryRange(sal.value === "all" ? "" : sal.value))}
-                                    className={`px-3 py-2 rounded-xl text-xs font-medium text-left transition-all duration-200 flex items-center justify-between ${
+                                    className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 border ${
                                         isSelected
-                                            ? 'bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-300 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 font-semibold'
-                                            : 'hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300'
+                                            ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white border-transparent shadow-xs font-semibold'
+                                            : 'bg-slate-100 dark:bg-slate-800/90 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700/80 border-slate-200/80 dark:border-slate-700/60'
                                     }`}
                                 >
-                                    <span>{sal.label}</span>
-                                    {isSelected && <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />}
+                                    {sal.label}
                                 </button>
                             );
                         })}
@@ -141,8 +140,9 @@ const FilterCard = () => {
                     <Button
                         onClick={() => dispatch(clearAllFilters())}
                         variant="outline"
-                        className="w-full text-xs font-semibold rounded-xl text-slate-600 dark:text-slate-300"
+                        className="w-full text-xs font-semibold rounded-xl text-rose-600 dark:text-rose-400 border-rose-200 dark:border-rose-900/50 bg-rose-50/50 dark:bg-rose-950/20 hover:bg-rose-100 dark:hover:bg-rose-950/50 flex items-center justify-center gap-1.5 transition-all"
                     >
+                        <RotateCcw className="w-3.5 h-3.5" />
                         Clear All Active Filters
                     </Button>
                 </div>

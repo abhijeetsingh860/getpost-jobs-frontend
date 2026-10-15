@@ -187,7 +187,7 @@ const Jobs = () => {
                                 </Button>
                             </div>
                         ) : (
-                            <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
+                            <div className='grid grid-cols-1 lg:grid-cols-2 gap-5 items-stretch'>
                                 <AnimatePresence>
                                     {filteredJobs.map((job) => (
                                         <motion.div
@@ -197,6 +197,7 @@ const Jobs = () => {
                                             animate={{ opacity: 1, y: 0 }}
                                             exit={{ opacity: 0, scale: 0.95 }}
                                             transition={{ duration: 0.25 }}
+                                            className="h-full"
                                         >
                                             <Job job={job} />
                                         </motion.div>
