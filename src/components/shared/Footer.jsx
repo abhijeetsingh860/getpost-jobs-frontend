@@ -51,11 +51,11 @@ const Footer = () => {
                 {/* Centered Bottom Bar */}
                 <div className="pt-8 border-t border-slate-200/60 dark:border-slate-800/80 flex flex-col items-center justify-center gap-3.5 text-center">
                     
-                    {/* Developer Highlight Pill */}
-                    <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-100/90 dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-2xs backdrop-blur-md">
+                    {/* Developer Highlight Pill with gradual shifting gradient */}
+                    <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-2xs backdrop-blur-md animate-gradient-border">
                         <span className="relative flex h-2 w-2">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 animate-dot-glow"></span>
                         </span>
                         <span className="text-xs text-slate-500 dark:text-slate-400">
                             Crafted & Developed by
@@ -64,7 +64,7 @@ const Footer = () => {
                             href="https://github.com/abhijeetsingh860" 
                             target="_blank" 
                             rel="noopener noreferrer" 
-                            className="text-xs font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-fuchsia-500 hover:opacity-85 transition-opacity"
+                            className="text-xs font-extrabold animate-gradient-flow hover:opacity-85 transition-opacity"
                         >
                             Abhijeet Singh
                         </a>

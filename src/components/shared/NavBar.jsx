@@ -130,22 +130,22 @@ const Navbar = () => {
                         </Link>
                     )}
 
-                    {/* Developer Highlight Pill */}
+                    {/* Developer Highlight Pill with gradual shifting gradient */}
                     <a 
                         href="https://github.com/abhijeetsingh860" 
                         target="_blank" 
                         rel="noopener noreferrer" 
-                        className="hidden lg:inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-100/90 dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-2xs backdrop-blur-md hover:border-indigo-500/40 transition-all duration-200"
+                        className="hidden lg:inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-2xs backdrop-blur-md animate-gradient-border transition-all duration-300"
                         title="Crafted & Developed by Abhijeet Singh"
                     >
                         <span className="relative flex h-2 w-2">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 animate-dot-glow"></span>
                         </span>
                         <span className="text-xs text-slate-500 dark:text-slate-400">
                             Crafted & Developed by
                         </span>
-                        <span className="text-xs font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-fuchsia-500">
+                        <span className="text-xs font-extrabold animate-gradient-flow">
                             Abhijeet Singh
                         </span>
                     </a>
@@ -354,14 +354,14 @@ const Navbar = () => {
                             href="https://github.com/abhijeetsingh860" 
                             target="_blank" 
                             rel="noopener noreferrer" 
-                            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100/90 dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700/80 shadow-2xs text-xs"
+                            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-2xs text-xs animate-gradient-border"
                         >
                             <span className="relative flex h-2 w-2">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 animate-dot-glow"></span>
                             </span>
                             <span className="text-slate-500 dark:text-slate-400">Crafted & Developed by</span>
-                            <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-fuchsia-500">
+                            <span className="font-extrabold animate-gradient-flow">
                                 Abhijeet Singh
                             </span>
                         </a>
