@@ -10,7 +10,7 @@
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 238.7 83.5% 66.7%;
     --primary-foreground: 210 40% 98%;
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -22,8 +22,8 @@
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --radius: 0.5rem;
+    --ring: 238.7 83.5% 66.7%;
+    --radius: 0.75rem;
   }
 
   .dark {
@@ -33,8 +33,8 @@
     --card-foreground: 210 40% 98%;
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 238.7 83.5% 66.7%;
+    --primary-foreground: 210 40% 98%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
     --muted: 217.2 32.6% 17.5%;
@@ -45,7 +45,7 @@
     --destructive-foreground: 210 40% 98%;
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --ring: 238.7 83.5% 66.7%;
   }
 }
 
@@ -56,135 +56,50 @@
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+
   [data-radix-popper-content-wrapper] {
-  z-index: 100 !important;
-}
+    z-index: 9999 !important;
+  }
 
-[data-radix-popper-content-wrapper] {
-  z-index: 9999 !important;
-}
+  [data-slot="dialog-overlay"] {
+    z-index: 9998 !important;
+  }
 
-[data-slot="dialog-overlay"] {
-  z-index: 9998 !important;
-}
+  [data-slot="dialog-content"] {
+    z-index: 9999 !important;
+  }
 
-[data-slot="dialog-content"] {
-  z-index: 9999 !important;
-  background-color: white !important;
-}
+  [data-slot="popover-content"] {
+    z-index: 9999 !important;
+  }
 
-[data-slot="popover-content"] {
-  z-index: 9999 !important;
-  background-color: white !important;
-}
+  .dark [data-slot="dialog-content"],
+  .dark [data-slot="popover-content"] {
+    background-color: #0f172a !important;
+    color: #f8fafc !important;
+    border-color: #334155 !important;
+  }
 
-.dark {
-  background-color: #0f172a;
-  color: #f1f5f9;
-}
-
-/* Dark Mode Global Styles */
-.dark body {
-  background-color: #0f172a;
-  color: #f1f5f9;
-}
-
-.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
-  color: #f1f5f9;
-}
-
-.dark p {
-  color: #cbd5e1;
-}
-
-.dark .bg-white {
-  background-color: #1e293b !important;
-}
-
-.dark .text-gray-600,
-.dark .text-gray-700,
-.dark .text-gray-800,
-.dark .text-gray-900 {
-  color: #e2e8f0 !important;
-}
-
-.dark .text-gray-400,
-.dark .text-gray-500 {
-  color: #94a3b8 !important;
-}
-
-.dark .border-gray-100,
-.dark .border-gray-200 {
-  border-color: #334155 !important;
-}
-
-.dark .bg-gray-50,
-.dark .bg-gray-100 {
-  background-color: #1e293b !important;
-}
-
-.dark .shadow-xl,
-.dark .shadow-lg,
-.dark .shadow-md {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5) !important;
-}
-
-.dark body {
-  background-color: #0f172a;
-  color: #f1f5f9;
-}
-
-.dark h1, .dark h2, .dark h3, .dark h4 {
-  color: #ffffff !important;
-}
-
-.dark p {
-  color: #cbd5e1 !important;
-}
-
-.dark .text-gray-900,
-.dark .text-gray-800,
-.dark .text-gray-700,
-.dark .text-gray-600 {
-  color: #e2e8f0 !important;
-}
-
-.dark .text-gray-500,
-.dark .text-gray-400 {
-  color: #94a3b8 !important;
-}
-
-.dark .bg-white {
-  background-color: #1e293b !important;
-}
-
-.dark .bg-gray-50,
-.dark .bg-gray-100 {
-  background-color: #1e293b !important;
-}
-
-.dark .border-gray-100,
-.dark .border-gray-200 {
-  border-color: #334155 !important;
-}
-
-/* Job Cards Dark Mode */
-.dark .group:hover {
-  background-color: #1e293b !important;
-}
-
-.dark .group .text-gray-900 {
-  color: #ffffff !important;
-}
-
-/* Search Bar Dark */
-.dark input {
-  background-color: transparent !important;
-  color: #f1f5f9 !important;
-}
-
-.dark input::placeholder {
-  color: #64748b !important;
-}
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+  }
+  .dark ::-webkit-scrollbar-thumb {
+    background: #334155;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
 }
